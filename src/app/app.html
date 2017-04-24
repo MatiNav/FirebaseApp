@@ -1,0 +1,29 @@
+<ion-menu [content]="nav">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title> Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button ion-item (click)="onLoad(signUpPage)" *ngIf="!isAutenticated">
+                <ion-icon name="log-in" item-left></ion-icon>
+                SignUp
+            </button>
+            <button  ion-item (click)="onLoad(signInPage)" *ngIf="!isAutenticated">
+                <ion-icon name="person" item-left></ion-icon>
+                Log-In
+            </button>
+            <button ion-item (click)="onLoad(tabsPage)" *ngIf="isAutenticated">
+                <ion-icon name="book" item-left></ion-icon>
+                Recipes
+            </button>
+            <button ion-item (click)="onLogOut()" *ngIf="isAutenticated">
+                <ion-icon name="log-out" item-left></ion-icon>
+                Log-Out
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="tabsPage" #nav></ion-nav>
